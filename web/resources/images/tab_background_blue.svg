@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="188" height="76" viewBox="0 0 188 76">
+  <defs>
+    <filter id="tab_background_blue" x="0" y="0" width="188" height="76" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#tab_background_blue)">
+    <rect id="tab_background_blue-2" data-name="tab_background_blue" width="158" height="46" rx="23" transform="translate(15 12)" fill="#61a8f3"/>
+  </g>
+</svg>

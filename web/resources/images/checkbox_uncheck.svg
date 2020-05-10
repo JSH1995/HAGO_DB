@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="checkbox_uncheck" transform="translate(-597 -771)">
+    <circle id="타원_374" cx="20" cy="20" r="20" transform="translate(597 771)" fill="#edeef0"/>
+    <g id="Icon_Done_Sharp" transform="translate(597 771)">
+      <rect id="Box" width="40" height="40" fill="none"/>
+      <path id="Icon_Done_Black" d="M9.482-.819,3.9-6.406,2-4.51,9.482,2.972,25.558-13.1l-1.9-1.9Z" transform="translate(4.694 28.367)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

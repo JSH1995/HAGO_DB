@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="85" height="35" viewBox="0 0 85 35">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.543" y1="0.872" x2="0.125" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#80cbfd"/>
+      <stop offset="1" stop-color="#53baff"/>
+    </linearGradient>
+  </defs>
+  <g id="그룹_2813" data-name="그룹 2813" transform="translate(-1095 -1391)">
+    <g id="그룹_2814" data-name="그룹 2814" transform="translate(1095 1391)">
+      <g id="그룹_2812" data-name="그룹 2812">
+        <g id="구성_요소_48_2" data-name="구성 요소 48 – 2" opacity="0.75">
+          <rect id="사각형_1538" data-name="사각형 1538" width="85" height="35" rx="17.5" fill="url(#linear-gradient)"/>
+          <g id="그룹_2515" data-name="그룹 2515" transform="translate(53.881 12.775)" opacity="0">
+            <line id="선_243" data-name="선 243" x2="4.326" y2="4.326" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+            <line id="선_244" data-name="선 244" y1="4.326" x2="4.326" transform="translate(0 4.326)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+          </g>
+        </g>
+      </g>
+      <text id="등록" transform="translate(28.5 24.392)" fill="#fff" font-size="16" font-family="AppleSDGothicNeo-Regular, Apple SD Gothic Neo"><tspan x="0" y="0">등록</tspan></text>
+    </g>
+  </g>
+</svg>

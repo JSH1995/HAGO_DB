@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 14 14">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="12" height="9" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="mail" transform="translate(-0.042 -0.369)">
+    <rect id="사각형_1494" data-name="사각형 1494" width="14" height="14" transform="translate(0.042 0.369)" fill="#fff"/>
+    <g id="mail-2" data-name="mail" transform="translate(1.042 3.369)" clip-path="url(#clip-path)">
+      <path id="mail-3" data-name="mail" d="M0,0V9.046H12.061V0ZM6.031,6.031,1.508,1.508h9.046Z" fill="#cbd0d3" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+.idea/*
+out/*
+classes/*
+target/*
+StandardProject.iml
+/web/META-INF
+/web/WEB-INF/classes
+/lib/*

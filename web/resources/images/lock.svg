@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.6" height="25.225" viewBox="0 0 17.6 25.225">
+  <g id="lock" transform="translate(0 1.225)">
+    <path id="Top" d="M173.149,24.3V21.357A5.053,5.053,0,0,0,168.1,16.3h0a5.053,5.053,0,0,0-5.053,5.053V24.3" transform="translate(-159.043 -16.529)" fill="none" stroke="#6d6d6d" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Bottom" d="M97.522,226.357h-14.4a1.6,1.6,0,0,1-1.6-1.6v-11.2a1.6,1.6,0,0,1,1.6-1.6h14.4a1.6,1.6,0,0,1,1.6,1.6v11.2A1.6,1.6,0,0,1,97.522,226.357Z" transform="translate(-81.522 -202.357)" fill="#6d6d6d"/>
+  </g>
+</svg>

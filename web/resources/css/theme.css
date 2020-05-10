@@ -1,0 +1,141 @@
+.text-blue-color {
+    color: #80CBFD !important;
+}
+
+.text-blueDark-color {
+    color: #53BAFF !important;
+}
+
+.text-black-color {
+    color: black !important;
+}
+
+.text-blacklight-color {
+    color: #363636 !important;
+}
+
+.text-gray-color {
+    color: #F7F7F7 !important;
+}
+
+.text-grayDark-color {
+    color: #95989A !important;
+}
+
+.bg-blue-color {
+    background-color: #80CBFD !important;
+}
+
+.bg-blueDark-color {
+    background-color: #53BAFF !important;
+}
+
+.bg-black-color {
+    background-color: black !important;
+}
+
+.bg-gray-color {
+    background-color: #F7F7F7 !important;
+}
+
+.title-main-text {
+    font-size: 34px !important;
+    font-weight: 800 !important;
+}
+
+.title-text {
+    font-size: 22px !important;
+    font-weight: 800 !important;
+}
+
+.profile-name-text {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+}
+
+.profile-sub-text {
+    font-size: 16px !important;
+    font-weight: normal !important;
+}
+
+.form-title-text {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+}
+
+.form-text {
+    font-size: 18px !important;
+    font-weight: bold !important;
+}
+
+.form-mytitle-text {
+    font-size: 18px !important;
+    font-weight: normal; !important;
+}
+
+.form-title-text-mini{
+    font-size: 16px !important;
+    font-weight: 800 !important;
+}
+
+.button-text {
+    font-size: 16px !important;
+    font-weight: normal !important;
+}
+
+button-text-mini{
+    font-size: 14px !important;
+    font-weight: bold !important;
+}
+
+.footer-text {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.detail-mysub-text{
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.content-title-text {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+}
+
+.content-subtitle-text {
+    font-size: 14px !important;
+    font-weight: normal !important;
+    color: #95989A !important;
+}
+
+.content-my-title-text {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+}
+
+.content-my-subtitle-text {
+    font-size: 12px !important;
+    font-weight: normal !important;
+    color: #95989A !important;
+}
+
+.detail-title-text {
+    font-size: 16px !important;
+    font-weight: 800 !important;
+}
+
+input{
+    font-weight: normal !important;
+}
+
+.text-white-color {
+    color: white !important;
+}
+
+.detail-ten_seven-text {
+    font-size: 17px !important;
+    font-weight: normal !important;
+}

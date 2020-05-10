@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="23" height="23" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="enter_arrow" transform="translate(23 23) rotate(180)" clip-path="url(#clip-path)">
+    <path id="Arrow_Back" data-name="Arrow Back" d="M23,10.063H5.463l8.05-8.05L11.5,0,0,11.5,11.5,23l2.012-2.012-8.05-8.05H23Z" fill="#fff"/>
+  </g>
+</svg>

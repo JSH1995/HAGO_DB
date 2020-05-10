@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="33" height="33" viewBox="0 0 33 33">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="타원_563" data-name="타원 563" cx="16.5" cy="16.5" r="16.5" transform="translate(997 3724)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="logo_map" transform="translate(-997 -3724)" clip-path="url(#clip-path)">
+    <g id="zq8oEu" transform="translate(1000.526 3727)">
+      <g id="그룹_2433" data-name="그룹 2433" transform="translate(0 0)">
+        <g id="그룹_2432" data-name="그룹 2432">
+          <path id="패스_4237" data-name="패스 4237" d="M1701.99,1162.886c.081,2.586-.989,4.676-2.011,6.76a75.9,75.9,0,0,1-5.7,9.207c-.417.611-.842,1.217-1.25,1.834-.2.3-.343.409-.6.035-2.956-4.224-5.975-8.408-7.972-13.213a11.913,11.913,0,0,1-1.085-5.118,9.7,9.7,0,0,1,6.276-8.389,9.325,9.325,0,0,1,12.018,6.327A6.412,6.412,0,0,1,1701.99,1162.886Zm-9.335,3.813a4.066,4.066,0,0,0,4.078-3.985,4.057,4.057,0,1,0-8.113-.037A4.06,4.06,0,0,0,1692.655,1166.7Z" transform="translate(-1679.888 -1153.491)" fill="#4d4d4d"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,83 @@
+
+.modal-dialog {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+
+.modal-body {
+    position: relative;
+    padding: 0px;
+}
+
+.close {
+    position: absolute;
+    right: -30px;
+    top: 0;
+    z-index: 999;
+    font-size: 2rem;
+    font-weight: normal;
+    color: #fff;
+    opacity: 1;
+}
+
+div#layout-study{
+    text-align: left;
+}
+div#layout-study .col-sm-3{
+    text-align: center;
+}
+div#layout-study .col-md-3{
+    text-align: center;
+}
+div#layout-study .col-xs-3{
+    text-align: center;
+}
+div#layout-share{
+    text-align: left;
+}
+div#layout-share .col-sm-3{
+    text-align: center;
+}
+div#layout-share .col-md-3{
+    text-align: center;
+}
+div#layout-share .col-xs-3{
+    text-align: center;
+}
+div#layout-hit{
+    text-align: left;
+}
+div#layout-hit .col-sm-3{
+    text-align: center;
+}
+div#layout-hit .col-md-3{
+    text-align: center;
+}
+div#layout-hit .col-xs-3{
+    text-align: center;
+}
+div#layout-share-add{
+    text-align: left;
+}
+div#layout-share-add .col-sm-3{
+    text-align: center;
+}
+div#layout-share-add .col-md-3{
+    text-align: center;
+}
+div#layout-share-add .col-xs-3{
+    text-align: center;
+}
+div#layout-study-add{
+    text-align: left;
+}
+div#layout-study-add .col-sm-3{
+    text-align: center;
+}
+div#layout-study-add .col-md-3{
+    text-align: center;
+}
+div#layout-study-add .col-xs-3{
+    text-align: center;
+}

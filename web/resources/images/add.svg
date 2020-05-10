@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="add" transform="translate(-1500 -789)">
+    <g id="타원_543" data-name="타원 543" transform="translate(1500 789)" fill="#fff" stroke="#80cbfd" stroke-width="2">
+      <circle cx="25" cy="25" r="25" stroke="none"/>
+      <circle cx="25" cy="25" r="24" fill="none"/>
+    </g>
+    <text id="_" data-name="+" transform="translate(1514 828)" fill="#80cbfd" font-size="40" font-family="ArialMT, Arial"><tspan x="0" y="0">+</tspan></text>
+  </g>
+</svg>

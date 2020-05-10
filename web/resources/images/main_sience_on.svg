@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31.637" height="34.177" viewBox="0 0 31.637 34.177">
+  <g id="sience" transform="translate(-581.508 -2564.035)">
+    <g id="그룹_2701" data-name="그룹 2701" transform="translate(582.521 2565.396)">
+      <path id="합치기_11" data-name="합치기 11" d="M7.537,26.025c-1.751-.979-2.073-4.034-1.132-7.9C2.56,17.118.028,15.38,0,13.374S2.456,9.561,6.273,8.445c-1.047-3.836-.808-6.9.916-7.924s4.53.221,7.4,2.967c2.8-2.824,5.569-4.148,7.32-3.168s2.074,4.033,1.132,7.9c3.845,1.011,6.377,2.749,6.4,4.755s-2.456,3.812-6.272,4.928c1.047,3.835.808,6.9-.916,7.924s-4.53-.221-7.4-2.967c-2.179,2.2-4.342,3.489-6.019,3.489A2.623,2.623,0,0,1,7.537,26.025Z" transform="translate(0.08 2.555)" fill="#fff"/>
+      <g id="그룹_2340" data-name="그룹 2340" transform="translate(0 0)">
+        <ellipse id="타원_545" data-name="타원 545" cx="14.726" cy="5.89" rx="14.726" ry="5.89" transform="matrix(1, -0.014, 0.014, 1, 0, 10.039)" fill="none" stroke="#80cbfd" stroke-miterlimit="10" stroke-width="2"/>
+        <ellipse id="타원_546" data-name="타원 546" cx="14.726" cy="5.89" rx="14.726" ry="5.89" transform="matrix(0.488, -0.873, 0.873, 0.488, 2.476, 25.705)" fill="none" stroke="#80cbfd" stroke-miterlimit="10" stroke-width="2"/>
+        <ellipse id="타원_547" data-name="타원 547" cx="5.89" cy="14.726" rx="5.89" ry="14.726" transform="translate(2.208 6.091) rotate(-30.783)" fill="none" stroke="#80cbfd" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>
