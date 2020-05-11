@@ -221,20 +221,23 @@ public class AuthService {
         }
     }
 
-    public int updateUser(String id, String password, String nickName, int year, int month, int day, String email, String authStr, int phone) {
+    public int updateUser(String id, String password, String nickName, int year, int month, int day, int phone) {
         Connection connection = null;
         try {
             connection = ConnectionProvider.getConnection();
-            String token = authDao.getToken(connection, email);
+            //String token = authDao.getToken(connection, email);
             int state = -1;
-            if (compare(token, authStr)) {
+            /*if (compare(token, authStr)) {
                 state = authDao.updateUser(connection, id, password, nickName, year, month, day, email, phone);
                 if (state == 1) {
                     authDao.deleteToken(connection, email);
                 }
             } else {
                 state = 0;
-            }
+            }*/
+            state = authDao.updateUser(connection, id, password, nickName, year, month, day,phone);
+
+
             return state;
         } catch (SQLException e) {
             e.printStackTrace();

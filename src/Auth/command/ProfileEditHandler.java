@@ -67,15 +67,15 @@ public class ProfileEditHandler implements CommandHandler {
         int year = Integer.parseInt(multipartRequest.getParameter("inputYear"));
         int month = Integer.parseInt(multipartRequest.getParameter("inputMonth"));
         int day = Integer.parseInt(multipartRequest.getParameter("inputDay"));
-        String email = multipartRequest.getParameter("inputEmail");
-        String authStr = multipartRequest.getParameter("inputNumber");
+/*        String email = multipartRequest.getParameter("inputEmail");
+        String authStr = multipartRequest.getParameter("inputNumber");*/
         int phone = Integer.parseInt(multipartRequest.getParameter("inputPhone"));
 
         /*TODO 2가지 선택 Image가 있냐 Image가 없냐*/
         System.out.println(file == null);
         if (file == null) {
             /*TODO Case 1*/
-            int state = authService.updateUser(user.getId(), password, nickName, year, month, day, email, authStr, phone);
+            int state = authService.updateUser(user.getId(), password, nickName, year, month, day, phone);
             if (state == -1) {
                 /*error*/
                 return ERROR_VIEW;
@@ -86,7 +86,7 @@ public class ProfileEditHandler implements CommandHandler {
             }
         } else {
             /*TODO Case 2*/
-            int state = authService.updateUser(user.getId(), password, nickName, year, month, day, email, authStr, phone);
+            int state = authService.updateUser(user.getId(), password, nickName, year, month, day, phone);
             System.out.println("state is : " + state);
             if (state == -1) {
                 /*error*/

@@ -12,6 +12,7 @@
     User user = (User) request.getAttribute("user");
     request.setAttribute("user", user);
     int state = Integer.parseInt(request.getAttribute("state") != null ? String.valueOf(request.getAttribute("state")) : "2");
+    System.out.println("-----> : " + state);
     request.setAttribute("state", state);
     Calendar cal = Calendar.getInstance();
 %>
@@ -171,7 +172,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-4">
+        <%--<div class="row mt-4">
             <div class="col-9">
                 <label for="inputEmail" class="pb-2 pl-1 form-title-text">이메일</label>
                 <input type="text" id="inputEmail" name="inputEmail" class="form-control mb-2"
@@ -195,9 +196,9 @@
                  style="padding-bottom: 18px;">
                 E-mail을 확인 해주세요.
             </div>
-        </div>
+        </div>--%>
         <div class="row mt-3">
-            <div class="col-9">
+            <div class="col-12">
                 <label for="inputPhone" class="pb-2 pl-1 form-title-text">휴대폰</label>
                 <input type="number" id="inputPhone" name="inputPhone" class="form-control mb-3"
                        placeholder="휴대폰 번호 ‘-‘를 제외하고 입력해주세요." value="0${user.phone}"
@@ -207,6 +208,11 @@
         <div class="row mt-4">
             <div class="col-12">
                 <button class="btn btn-block mt-4 mb-4 auth-submit text-white ml-0 mr-0" type="submit" style="height: 48px !important;">저장</button>
+            </div>
+            <div class="col-12">
+                <a href="/profile.do" style="text-decoration: none">
+                    <div class="btn btn-block mt-2 mb-2 auth-submit-cancel text-white ml-0 mr-0" style="height: 48px !important;">취소</div>
+                </a>
             </div>
         </div>
     </div>
@@ -240,8 +246,12 @@
             alert('생년 월일을 선택하여 주세요.');
             $('#inputDay').focus();
         }
+/*
         var checkValue5 = inspection('inputEmail', 'email') ? true : false;
+*/
+/*
         var checkValue51 = inspection('inputNumber', 'authStr') ? true : false;
+*/
         var checkValue6 = inspection('inputPhone', 'phone') ? true : false;
         var checkValue7 = ($('#inputNewPassword').val() === $('#inputNewPasswordCheck').val());
         if (checkValue7 == false) {
@@ -276,12 +286,12 @@
         }
     }
 
-    function duplicateMail() {
+ /*   function duplicateMail() {
         var valueCheck = inspection('inputEmail', 'email') ? true : false;
         if (valueCheck) {
             duplicatedMailprofile('${user.id}', $('#inputEmail').val(), 'auth');
         }
-    }
+    }*/
 
     function profileeditChek() {
         var state = ${state};

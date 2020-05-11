@@ -281,17 +281,16 @@ public class AuthDao {
         }
     }
 
-    public int updateUser(Connection connection, String id, String password, String nickName, int year, int month, int day, String email, int phone) throws SQLException {
+    public int updateUser(Connection connection, String id, String password, String nickName, int year, int month, int day, int phone) throws SQLException {
         PreparedStatement pstmt = null;
         int nRs = -1;
         try {
-            pstmt = connection.prepareStatement("update user set User_Password=?,User_NickName=?,User_BirthDate=?,User_Email=?,User_Phone=? where User_ID=?");
+            pstmt = connection.prepareStatement("update user set User_Password=?,User_NickName=?,User_BirthDate=?,User_Phone=? where User_ID=?");
             pstmt.setString(1, password);
             pstmt.setString(2, nickName);
             pstmt.setString(3, year + "-" + month + "-" + day);
-            pstmt.setString(4, email);
-            pstmt.setInt(5, phone);
-            pstmt.setString(6, id);
+            pstmt.setInt(4, phone);
+            pstmt.setString(5, id);
             nRs = pstmt.executeUpdate();
             if (nRs >= 0) {
                 return 1;
