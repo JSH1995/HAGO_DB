@@ -80,6 +80,8 @@ public class ContentCreateHandler implements CommandHandler {
             contentService.updateContent(content_no, name, title, category, detail, contents);
             req.setAttribute("content", contentService.getContent(content_no));
             req.setAttribute("state", 1);
+            req.setAttribute("checkedEdit", 1);
+
         } else {
             /*CASE2 CREATE*/
             int content_no = contentService.createContent(name, title, category, detail, contents, user);

@@ -216,6 +216,15 @@
             location.href = "/profile.do";
 
         }
+        if (${checkedEdit eq 1}) {
+            /*Create 저장 성공*/
+            /*
+                        location.href = "/detailCreate.do?type=${content.state}&content_no=${content.no}";
+*/
+            location.href = "/profile.do";
+
+        }
+
         /*default category science*/
         categoryClick(null);
         if (${not empty content}) {
@@ -353,20 +362,20 @@
             detail.length >= 1 && makeContents()) {
             if (${state eq 1}) {
                 /*EDIT상태*/
-/*
                 $('#createForm').attr('action', '/detailCreate.do?type=edit&content_no=${content.no}');
-*/
-                alert('수정이 완료되었습니다.')
+                alert('수정이 완료되었습니다.');
+/*
                 $('#createForm').attr('action', '/profile.do');
+*/
 
             } else if (${state eq 2}) {
                 /*CREATE상태*/
-/*
-                $('#createForm').attr('action', '/detailCreate.do');
-*/
-                alert('저장되었습니다.')
-                $('#createForm').attr('action', '/profile.do');
 
+                $('#createForm').attr('action', '/detailCreate.do');
+
+                alert('저장되었습니다.');
+          /*      $('#createForm').attr('action', '/profile.do');
+*/
             }
             return true;
         } else {
