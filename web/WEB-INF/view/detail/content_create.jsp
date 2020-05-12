@@ -114,7 +114,7 @@
                 </div>
                 <div class="row m-0 p-0 pr-2 mt-4">
                     <div class="row col-12 m-0 p-0 ml-2">
-                        <span class="mb-auto w-15 detail-title-text">상세 설명</span>
+                        <span class="mb-auto w-15 detail-title-text">상세설명</span>
                         <div class="w-85 pl-2">
                         <textarea type="text" id="inputDetailDescript" name="inputDetailDescript"
                                   class="non-form-control" placeholder="자세한 설명을 입력해주세요." required="" autofocus=""
@@ -210,7 +210,11 @@
         $('#inputLearningDetail-2').val('');
         if (${state eq 2 && not empty content}) {
             /*Create 저장 성공*/
+/*
             location.href = "/detailCreate.do?type=${content.state}&content_no=${content.no}";
+*/
+            location.href = "/profile.do";
+
         }
         /*default category science*/
         categoryClick(null);
@@ -349,10 +353,20 @@
             detail.length >= 1 && makeContents()) {
             if (${state eq 1}) {
                 /*EDIT상태*/
+/*
                 $('#createForm').attr('action', '/detailCreate.do?type=edit&content_no=${content.no}');
+*/
+                alert('수정이 완료되었습니다.')
+                $('#createForm').attr('action', '/profile.do');
+
             } else if (${state eq 2}) {
                 /*CREATE상태*/
+/*
                 $('#createForm').attr('action', '/detailCreate.do');
+*/
+                alert('저장되었습니다.')
+                $('#createForm').attr('action', '/profile.do');
+
             }
             return true;
         } else {

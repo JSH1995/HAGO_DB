@@ -8,6 +8,12 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import java.util.Properties;
+
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 public class MailService {
     /*MailSending Algorithm
      * 1. Create Personal Token
@@ -24,155 +30,125 @@ public class MailService {
             return FORM_VIEW;
         }*/
 
-    private String URL = "https://api.sendgrid.com/v3/mail/send";
-    private String CONTENT_TYPE = "application/json";
-    private String AUTHORIZATION_TYPE = "Bearer ";
-    private String AUTH_KEY = "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";
-    private String METHOD_TYPE = "POST";
-
+    /*회원가입 메일 제목*/
     private String TITLE = "Hello, Hago Authenticated for you";
-    private String FROM = "dlwjdgmlrnt@naver.com";
-    private String FORM = "Test Token is ";
+    /*비밀번호 찾기 메일 내용*/
+    private String FORM = "Authenticated Token is ";
 
-    public boolean MailSender(String to, String token) throws JSONException, IOException {
-        HttpURLConnection connection = null;
-        OutputStreamWriter wr = null;
+    /*비밀번호 찾기 메일 제목*/
+    private String Find_PASSWORD_TITLE = "Hello, Hago find password for you";
+    /*비밀번호 찾기 메일 내용*/
+    private String Find_PASSWORD_FORM = "Your password is ";
+
+    /*아이디 찾기 메일 제목*/
+    private String Find_ID_TITLE = "Hello, Hago find id for you";
+    /*아이디 찾기 메일 제목*/
+    private String Find_ID_FORM = "Your id is ";
+
+    public boolean naverMailSend(String to, String token) {
+        String host = "smtp.naver.com"; // 네이버일 경우 네이버 계정, gmail경우 gmail 계정
+        String user = "codinghago@naver.com"; // 패스워드
+        String password = "1q2w3e4r!";      // SMTP 서버 정보를 설정한다.
+        Properties props = new Properties();
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", 587);
+        props.put("mail.smtp.auth", "true");
+        Session session = Session.getDefaultInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(user, password);
+            }
+        });
         try {
-            connection = (HttpURLConnection) new URL(URL).openConnection();
-            connection.setRequestProperty("Content-Type", CONTENT_TYPE);
-            connection.setRequestProperty("Authorization", AUTHORIZATION_TYPE + AUTH_KEY);
-            connection.setRequestMethod(METHOD_TYPE);
-            connection.setDoOutput(true); // POST 파라미터 전달을 위한 설정
-            wr = new OutputStreamWriter(connection.getOutputStream());
-            wr.write(MailData(to, token).toString());
-            wr.flush();
-            System.out.println("Connection Code : " + connection.getResponseCode()
-                    + " Connection Response Message : " + connection.getResponseMessage()
-                    + " Connection Request Method : " + connection.getRequestMethod());
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(user));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            // 메일 제목
+            message.setSubject(TITLE);
+            // 메일 내용
+            message.setText(FORM + token);
+            // send the message
+            Transport.send(message);
+            System.out.println("Success Message Send");
             return true;
-        } catch (Exception e) {
+        } catch (MessagingException e) {
+            e.printStackTrace();
             return false;
-        } finally {
-            wr.close();
-            connection.disconnect();
         }
     }
 
-    public JSONObject MailData(String to, String token) throws JSONException {
-        JSONObject data = new JSONObject();
-        data.put("personalizations", MailPersonalization(to));
-        data.put("from", MailFrom());
-        JSONArray content = new JSONArray();
-        JSONObject contentObject = new JSONObject();
-        contentObject.put("type", "text/plain");
-        contentObject.put("value", FORM + token);
-        content.put(contentObject);
-        data.put("content", content);
-        return data;
+    /*ID 찾기 보내기*/
+    public boolean naverMailSendID(String to, String id) {
+        String host = "smtp.naver.com"; // 네이버일 경우 네이버 계정, gmail경우 gmail 계정
+        String user = "codinghago@naver.com"; // 패스워드
+        String password = "1q2w3e4r!";      // SMTP 서버 정보를 설정한다.
+        Properties props = new Properties();
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", 587);
+        props.put("mail.smtp.auth", "true");
+        Session session = Session.getDefaultInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(user, password);
+            }
+        });
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(user));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            // 메일 제목
+            message.setSubject(Find_ID_TITLE);
+            // 메일 내용
+            message.setText(Find_ID_FORM + id);
+            // send the message
+            Transport.send(message);
+            System.out.println("Success Message Send");
+            return true;
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    public JSONObject MailFrom() throws JSONException {
-        JSONObject from = new JSONObject();
-        from.put("email", FROM);
-        return from;
+    /*PASSWORD 찾기 보내기*/
+    public boolean naverMailSendPass(String to, String pass) {
+        String host = "smtp.naver.com"; // 네이버일 경우 네이버 계정, gmail경우 gmail 계정
+        String user = "codinghago@naver.com"; // 패스워드
+        String password = "1q2w3e4r!";      // SMTP 서버 정보를 설정한다.
+        Properties props = new Properties();
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", 587);
+        props.put("mail.smtp.auth", "true");
+        Session session = Session.getDefaultInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(user, password);
+            }
+        });
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(user));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            // 메일 제목
+            message.setSubject(Find_PASSWORD_TITLE);
+            // 메일 내용
+            message.setText(Find_PASSWORD_FORM + pass);
+            // send the message
+            Transport.send(message);
+            System.out.println("Success Message Send");
+            return true;
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    public JSONArray MailTo(String to) throws JSONException {
-        JSONArray toArray = new JSONArray();
-        JSONObject toObject = new JSONObject();
-        toObject.put("email", to);
-        toArray.put(toObject);
-        return toArray;
-    }
-
-    public String MailSubject() {
-        return TITLE;
-    }
-
-    public JSONArray MailPersonalization(String to) throws JSONException {
-        JSONArray personalization = new JSONArray();
-        JSONObject personalizationObject = new JSONObject();
-        personalizationObject.put("to", MailTo(to));
-        personalizationObject.put("subject", MailSubject());
-        personalization.put(personalizationObject);
-        return personalization;
+    public boolean MailSender(String to, String token) throws JSONException, IOException, MessagingException {
+        return naverMailSend(to, token);
     }
 
     public boolean MailSenderID(String to, String id) throws IOException {
-        HttpURLConnection connection = null;
-        OutputStreamWriter wr = null;
-        try {
-            connection = (HttpURLConnection) new URL(URL).openConnection();
-            connection.setRequestProperty("Content-Type", CONTENT_TYPE);
-            connection.setRequestProperty("Authorization", AUTHORIZATION_TYPE + AUTH_KEY);
-            connection.setRequestMethod(METHOD_TYPE);
-            connection.setDoOutput(true); // POST 파라미터 전달을 위한 설정
-            wr = new OutputStreamWriter(connection.getOutputStream());
-            wr.write(MailDataID(to, id).toString());
-            wr.flush();
-            System.out.println("Connection Code : " + connection.getResponseCode()
-                    + " Connection Response Message : " + connection.getResponseMessage()
-                    + " Connection Request Method : " + connection.getRequestMethod());
-            return true;
-        } catch (Exception e) {
-            return false;
-        } finally {
-            wr.close();
-            connection.disconnect();
-        }
-    }
-
-    public JSONObject MailDataID(String to, String id) throws JSONException {
-        TITLE = "Hello, Hago find id for you";
-        FORM = "Id is ";
-        JSONObject data = new JSONObject();
-        data.put("personalizations", MailPersonalization(to));
-        data.put("from", MailFrom());
-        JSONArray content = new JSONArray();
-        JSONObject contentObject = new JSONObject();
-        contentObject.put("type", "text/plain");
-        contentObject.put("value", FORM + id);
-        content.put(contentObject);
-        data.put("content", content);
-        return data;
+        return naverMailSendID(to, id);
     }
 
     public boolean MailSenderPassword(String to, String password) throws IOException {
-        HttpURLConnection connection = null;
-        OutputStreamWriter wr = null;
-        try {
-            connection = (HttpURLConnection) new URL(URL).openConnection();
-            connection.setRequestProperty("Content-Type", CONTENT_TYPE);
-            connection.setRequestProperty("Authorization", AUTHORIZATION_TYPE + AUTH_KEY);
-            connection.setRequestMethod(METHOD_TYPE);
-            connection.setDoOutput(true); // POST 파라미터 전달을 위한 설정
-            wr = new OutputStreamWriter(connection.getOutputStream());
-            wr.write(MailDataPassword(to, password).toString());
-            wr.flush();
-            System.out.println("Connection Code : " + connection.getResponseCode()
-                    + " Connection Response Message : " + connection.getResponseMessage()
-                    + " Connection Request Method : " + connection.getRequestMethod());
-            return true;
-        } catch (Exception e) {
-            return false;
-        } finally {
-            wr.close();
-            connection.disconnect();
-        }
-    }
-
-    public JSONObject MailDataPassword(String to, String password) throws JSONException {
-        TITLE = "Hello, Hago find password for you";
-        FORM = "Password is ";
-        JSONObject data = new JSONObject();
-        data.put("personalizations", MailPersonalization(to));
-        data.put("from", MailFrom());
-        JSONArray content = new JSONArray();
-        JSONObject contentObject = new JSONObject();
-        contentObject.put("type", "text/plain");
-        contentObject.put("value", FORM + password);
-        content.put(contentObject);
-        data.put("content", content);
-        return data;
+        return naverMailSendPass(to, password);
     }
 }
