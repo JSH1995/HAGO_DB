@@ -13,6 +13,9 @@
      *  1. Studys와 Shares는 다시 Category별로 분류한다.
      *  2. 학습하고와 공유하고를 눌렀을때 레이아웃이 들어간다.*/
     MainContents contents = (MainContents) request.getAttribute("contents");
+
+    System.out.println("----------> : " + contents.toString());
+
     request.setAttribute("contents", contents);
     System.out.println("contentsss : "+contents);
 

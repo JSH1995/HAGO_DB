@@ -106,9 +106,18 @@
                                  style="border-radius: 70px;"/>
                         </c:when>
                         <c:otherwise>
-                            <img width="136" height="136" src="../../../resources/images/profile_default.svg"/>
+                            <c:choose>
+                                <c:when test="${user.gender eq 'man'}">
+                                    <img width="136" height="136" src="../../../resources/images/man_icon.svg"/>
+                                </c:when>
+                                <c:otherwise>
+                                    <img width="136" height="136" src="../../../resources/images/woman_icon.svg"/>
+                                </c:otherwise>
+                            </c:choose>
                         </c:otherwise>
                     </c:choose>
+
+
 
                     <div class="mt-3 profile-name-text">
                         ${user.id}
@@ -238,8 +247,8 @@
         html += '<div class="col-2 col-md-2">\n' +
             '                            <div class="card mb-2 border-0">\n' +
             '                                           <img class="card-img-top" style="height: 130px;" src="../../resources/images/main_content_sample' + '${status_sub.count%4+1}' + '.svg">\n' +
-            '                                           <div class="content-my-title-text mt-2">${content.title}</div>\n' +
-            '                                           <div class="content-my-subtitle-text mt-1">${content.detail}</div>\n' +
+            '                                           <div class="content-my-title-text mt-2">${content.name}</div>\n' +
+            '                                           <div class="content-my-subtitle-text mt-1">${content.title}</div>\n' +
             '                                           <div class="pt-2" >\n' +
             '                                           <img onclick="goClicked(3,${content.no},\'${content.state}\')" src="../../resources/images/main_go.svg" style="height: 25px;">\n' +
             '                                           </div>\n' +
@@ -262,8 +271,8 @@
         <c:forEach varStatus="status_sub" begin="${status.index-1}" end="${status.index-1+5}" step="1" var="content" items="${profile.edits}">
         html += '<div class="col-xs-2 col-sm-2 col-md-2">\n' +
             '    <img src="../../resources/images/main_content_sample' + '${status_sub.count%4+1}' + '.svg" style="height: 130px;">\n' +
-            '    <div class="content-my-title-text mt-2">${content.title}</div>\n' +
-            '    <div class="content-my-subtitle-text mt-1">${content.detail}</div>\n' +
+            '    <div class="content-my-title-text mt-2">${content.name}</div>\n' +
+            '    <div class="content-my-subtitle-text mt-1">${content.title}</div>\n' +
             '    <div class="pt-2">\n' +
             '        <img onclick="goClicked(1,${content.no})"  src="../../resources/images/main_go.svg" style="height: 25px;">\n' +
             '    </div>\n' +
@@ -274,8 +283,8 @@
         <c:forEach varStatus="status_sub" begin="${status.index-1}" end="${status.index-1+5}" step="1" var="content" items="${profile.edits}">
         html += '<div class="col-xs-2 col-sm-2 col-md-2 t-3">\n' +
             '    <img src="../../resources/images/main_content_sample' + '${status_sub.count%4+1}' + '.svg" style="height: 130px;">\n' +
-            '    <div class="content-my-title-text mt-2">${content.title}</div>\n' +
-            '    <div class="content-my-subtitle-text mt-1">${content.detail}</div>\n' +
+            '    <div class="content-my-title-text mt-2">${content.name}</div>\n' +
+            '    <div class="content-my-subtitle-text mt-1">${content.title}</div>\n' +
             '    <div class="pt-2">\n' +
             '        <img onclick="goClicked(1,${content.no})"  src="../../resources/images/main_go.svg" style="height: 25px;">\n' +
             '    </div>\n' +
@@ -296,8 +305,8 @@
         <c:forEach varStatus="status_sub" begin="${status.index-1}" end="${status.index-1+5}" step="1" var="content" items="${profile.shares}">
         html += '<div class="col-xs-2 col-sm-2 col-md-2">\n' +
             '    <img src="../../resources/images/main_content_sample' + '${status_sub.count%4+1}' + '.svg" style="height: 130px;">\n' +
-            '    <div class="content-my-title-text mt-2">${content.title}</div>\n' +
-            '    <div class="content-my-subtitle-text mt-1">${content.detail}</div>\n' +
+            '    <div class="content-my-title-text mt-2">${content.name}</div>\n' +
+            '    <div class="content-my-subtitle-text mt-1">${content.title}</div>\n' +
             '    <div class="pt-2">\n' +
             '        <img onclick="goClicked(2,${content.no})"  src="../../resources/images/main_go.svg" style="height: 25px;">\n' +
             '    </div>\n' +
@@ -308,8 +317,8 @@
         <c:forEach varStatus="status_sub" begin="${status.index-1}" end="${status.index-1+5}" step="1" var="content" items="${profile.shares}">
         html += '<div class="col-xs-2 col-sm-2 col-md-2 t-3">\n' +
             '    <img src="../../resources/images/main_content_sample' + '${status_sub.count%4+1}' + '.svg" style="height: 130px;">\n' +
-            '    <div class="content-my-title-text mt-2">${content.title}</div>\n' +
-            '    <div class="content-my-subtitle-text mt-1">${content.detail}</div>\n' +
+            '    <div class="content-my-title-text mt-2">${content.name}</div>\n' +
+            '    <div class="content-my-subtitle-text mt-1">${content.title}</div>\n' +
             '    <div class="pt-2">\n' +
             '        <img onclick="goClicked(2,${content.no})"  src="../../resources/images/main_go.svg" style="height: 25px;">\n' +
             '    </div>\n' +
@@ -331,8 +340,8 @@
         html += '<div id="${content.no}" class="col-xs-2 col-sm-2 col-md-2">\n' +
             '    <img src="../../resources/images/main_content_sample' + '${status_sub.count%4+1}' + '.svg" style="height: 130px;"/>\n' +
             '    <img onclick="deleteClicked(${content.no})" class="position-absolute" src="../../resources/images/delete_contents.png" style="top: 9px; right: 23px;">\n' +
-            '    <div class="content-my-title-text mt-2">${content.title}</div>\n' +
-            '    <div class="content-my-subtitle-text mt-1">${content.detail}</div>\n' +
+            '    <div class="content-my-title-text mt-2">${content.name}</div>\n' +
+            '    <div class="content-my-subtitle-text mt-1">${content.title}</div>\n' +
             '    <div class="pt-2">\n' +
             '        <img onclick="goClicked(2,${content.no})"  src="../../resources/images/main_go.svg" style="height: 25px;">\n' +
             '    </div>\n' +
@@ -344,8 +353,8 @@
         html += '<div class="col-xs-2 col-sm-2 col-md-2 t-3">\n' +
             '    <img src="../../resources/images/main_content_sample' + '${status_sub.count%4+1}' + '.svg" style="height: 130px;">\n' +
             '    <img onclick="deleteClicked()" class="position-absolute" src="../../resources/images/delete_contents.png" style="top: 9px; right: 23px;">\n' +
-            '    <div class="content-my-title-text mt-2">${content.title}</div>\n' +
-            '    <div class="content-my-subtitle-text mt-1">${content.detail}</div>\n' +
+            '    <div class="content-my-title-text mt-2">${content.name}</div>\n' +
+            '    <div class="content-my-subtitle-text mt-1">${content.title}</div>\n' +
             '    <div class="pt-2">\n' +
             '        <img onclick="goClicked(2,${content.no})"  src="../../resources/images/main_go.svg" style="height: 25px;">\n' +
             '    </div>\n' +

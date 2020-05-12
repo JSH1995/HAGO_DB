@@ -321,13 +321,15 @@
         }
         var fileValue = $("#inputFile").val().split("\\");
         var fileName = fileValue[fileValue.length - 1];
+        console.log(fileName);
         var checkValue8 = false;
         if (fileName != null && fileName.length > 3) {
             checkValue8 = inspection('inputProfile', 'profile');
         } else {
-            checkValue8 = false;
+           /* checkValue8 = false;
             alert("프로필 이미지를 확인해주세요");
-            $('#inputProfile').focus();
+            $('#inputProfile').focus();*/
+            checkValue8 = true;
         }
         var checkValue9 = $('#checkAll').is(":checked");
         if (!checkValue9) {

@@ -365,3 +365,18 @@ input {
     margin: 10px;
     vertical-align: center;
 }
+
+.auth-submit-cancel {
+    height: 56px;
+    text-align: center !important;
+    line-height: 32px;
+    background-color: #FFFFFF;
+    color: #80CBFD !important;
+    border-color: #80CBFD;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    font-weight: normal;
+    font-size: 17px;
+}
