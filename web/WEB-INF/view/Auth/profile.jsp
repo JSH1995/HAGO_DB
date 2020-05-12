@@ -106,9 +106,18 @@
                                  style="border-radius: 70px;"/>
                         </c:when>
                         <c:otherwise>
-                            <img width="136" height="136" src="../../../resources/images/profile_default.svg"/>
+                            <c:choose>
+                                <c:when test="${user.gender eq 'man'}">
+                                    <img width="136" height="136" src="../../../resources/images/man_icon.svg"/>
+                                </c:when>
+                                <c:otherwise>
+                                    <img width="136" height="136" src="../../../resources/images/woman_icon.svg"/>
+                                </c:otherwise>
+                            </c:choose>
                         </c:otherwise>
                     </c:choose>
+
+
 
                     <div class="mt-3 profile-name-text">
                         ${user.id}

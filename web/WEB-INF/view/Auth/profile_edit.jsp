@@ -53,10 +53,20 @@
                              height="145" style="border-radius: 70px;"/>
                     </c:when>
                     <c:otherwise>
-                        <img id="profile-image" src="../../../resources/images/profile_default.svg"
-                             class="position-absolute" alt=""
-                             width="145"
-                             height="145"/>
+                        <c:choose>
+                            <c:when test="${user.gender eq 'man'}">
+                                <img id="profile-image" src="../../../resources/images/man_icon.svg"
+                                     class="position-absolute" alt=""
+                                     width="145"
+                                     height="145"/>
+                            </c:when>
+                            <c:otherwise>
+                                <img id="profile-image" src="../../../resources/images/woman_icon.svg"
+                                     class="position-absolute" alt=""
+                                     width="145"
+                                     height="145"/>
+                            </c:otherwise>
+                        </c:choose>
                     </c:otherwise>
                 </c:choose>
                 <img class="position-absolute" style="bottom: 35px; right: 0;"

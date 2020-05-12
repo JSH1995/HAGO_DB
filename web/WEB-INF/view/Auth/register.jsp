@@ -329,7 +329,6 @@
            /* checkValue8 = false;
             alert("프로필 이미지를 확인해주세요");
             $('#inputProfile').focus();*/
-            $('#inputProfile').val('');
             checkValue8 = true;
         }
         var checkValue9 = $('#checkAll').is(":checked");

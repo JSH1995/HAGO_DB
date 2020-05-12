@@ -52,8 +52,16 @@
                              height="140" style="border-radius: 70px;">
                     </c:when>
                     <c:otherwise>
-                        <img class="mb-2" src="../../../resources/images/profile_default.svg" alt="" width="140"
-                             height="140">
+                        <c:choose>
+                            <c:when test="${user.gender eq 'man'}">
+                                <img class="mb-2" src="../../../resources/images/man_icon.svg" alt="" width="140"
+                                     height="140">
+                            </c:when>
+                            <c:otherwise>
+                                <img class="mb-2" src="../../../resources/images/woman_icon.svg" alt="" width="140"
+                                     height="140">
+                            </c:otherwise>
+                        </c:choose>
                     </c:otherwise>
                 </c:choose>
             </div>

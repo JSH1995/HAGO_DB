@@ -73,33 +73,42 @@ public class RegisterHandler implements CommandHandler {
         } else if (user_no == 0) {
             req.setAttribute("state", 0);
         } else {
-            long time = System.currentTimeMillis();
-            String newFileName = time + "_" + file.getName();
-            String newFilePath = "files/images/" + user_no;
-            if (!directory.isExistFolder("/files/images/" + user_no)) {
-                if (!directory.createFolder("/files/images/" + user_no + "")) {
-                    /*File Create Error*/
+            if (file != null) {
+                /*Case 1 File Exist*/
+                long time = System.currentTimeMillis();
+                String newFileName = time + "_" + file.getName();
+                String newFilePath = "files/images/" + user_no;
+                if (!directory.isExistFolder("/files/images/" + user_no)) {
+                    if (!directory.createFolder("/files/images/" + user_no + "")) {
+                        /*File Create Error*/
+                        directory.removeFile(directory.getDirectoryPath(), file.getName());
+                        return ERROR_VIEW;
+                    }
+                }
+                System.out.println("copy file");
+                if (directory.copyFile(directory.getDirectoryPath(), newFilePath, file.getName(), newFileName)) {
+                    if (authService.setProfile(user_no, newFilePath + "/" + newFileName)) {
+                        req.setAttribute("state", 1);
+                        System.out.println("copy file success");
+                        directory.removeFile(directory.getDirectoryPath(), file.getName());
+                    } else {
+                        directory.removeFile(directory.getDirectoryPath(), file.getName());
+                    }
+                } else {
                     directory.removeFile(directory.getDirectoryPath(), file.getName());
                     return ERROR_VIEW;
                 }
+                System.out.println("newFileName : " + newFileName);
+                System.out.println("newFilePath : " + newFilePath);
+                System.out.println("oldFileName : " + file.getName());
+                System.out.println("oldFilePath : " + directory.getDirectoryPath());
+            }else{
+                /*Case2 File is not Exist*/
+                System.out.println("File is not Exist");
+                req.setAttribute("state", 1);
             }
-            System.out.println("copy file");
-            if (directory.copyFile(directory.getDirectoryPath(), newFilePath, file.getName(), newFileName)) {
-                if (authService.setProfile(user_no, newFilePath + "/" + newFileName)) {
-                    req.setAttribute("state", 1);
-                    System.out.println("copy file success");
-                    directory.removeFile(directory.getDirectoryPath(), file.getName());
-                } else {
-                    directory.removeFile(directory.getDirectoryPath(), file.getName());
-                }
-            } else {
-                directory.removeFile(directory.getDirectoryPath(), file.getName());
-                return ERROR_VIEW;
-            }
-            System.out.println("newFileName : " + newFileName);
-            System.out.println("newFilePath : " + newFilePath);
-            System.out.println("oldFileName : " + file.getName());
-            System.out.println("oldFilePath : " + directory.getDirectoryPath());
+
+
         }
 
         return FORM_VIEW;
