@@ -43,6 +43,7 @@ public class LoginHandler implements CommandHandler {
             case 1:
                 /*success session create and setAttribute*/
                 req.getSession().setAttribute("USER", id);
+                req.getSession().setAttribute("CUSTOM", 1);
                 req.setAttribute("isLogin", 1);
                 break;
             case 2:

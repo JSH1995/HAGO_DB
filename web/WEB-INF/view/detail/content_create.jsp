@@ -23,6 +23,8 @@
         /*CREATE*/
     }
 %>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -405,6 +407,24 @@
     function replaceAll(str, searchStr, replaceStr) {
         return str.split(searchStr).join(replaceStr);
     }
+
+
 </script>
+<c:choose>
+    <c:when test="${ request.getSession().getAttribute('CUSTOM') ne admin}">
+        aaaaaaaaa
+    </c:when>
+    <c:otherwise>
+        bbbbbbbbb
+    </c:otherwise>
+</c:choose>
 </body>
 </html>
+<%
+    if(request.getSession().getAttribute("USER")!=null){
+
+        System.out.println("세션값 :"+request.getSession().getAttribute("CUSTOM"));
+}else{
+
+    }
+%>
