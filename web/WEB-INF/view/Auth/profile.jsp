@@ -156,11 +156,18 @@
         <%--Add Template--%>
         <div class="text-left profile-name-text text-Dark-color mb-4 row p-0 m-0">
             내 학습
-            <button onclick="getLocation('detailCreate.do?type=create');"
-                    class="btn btn-block button-craft2 m-0 p-0 ml-4"
-                    style="color:#fff !important; font-weight: normal !important; width: 122px; height: 30px;">
-                새로 만들기
-            </button>
+            <c:choose>
+                <c:when test="${user.getNo() eq 1}">
+                    <button onclick="getLocation('detailCreate.do?type=create');"
+                            class="btn btn-block button-craft2 m-0 p-0 ml-4"
+                            style="color:#fff !important; font-weight: normal !important; width: 122px; height: 30px;">
+                        새로 만들기
+                    </button>
+                </c:when>
+                <c:otherwise>
+                    <%System.out.println("not admin");%>
+                </c:otherwise>
+            </c:choose>
         </div>
 
         <%--Add Template--%>
