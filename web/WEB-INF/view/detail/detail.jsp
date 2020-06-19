@@ -153,7 +153,7 @@
                 <div class="col-12 row">
                     <div class="col-12 text-center">
                         <img class="cursor-pointer" src="../../../resources/images/detail_go.svg"
-                             style="border-radius: 30px;">
+                             style="border-radius: 30px;" onclick="location.href='http://codinghago.com:3389/?stage=1'">
                     </div>
                 </div>
             </div>
