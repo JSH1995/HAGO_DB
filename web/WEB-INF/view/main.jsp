@@ -249,7 +249,7 @@
                                 <div class="content-subtitle-text mt-1">과학교구를 통한 학습</div>
                             </div>
                             <div class="col-xs-3 col-sm-3 col-md-3">
-                                <img src="../../resources/images/main_content_sample2.svg">
+                                <img src="../../resources/images/main_content_sample2.jpg">
                                 <div class="content-title-text mt-2">골드버그</div>
                                 <div class="content-subtitle-text mt-1">과학교구를 통한 학습</div>
                             </div>
