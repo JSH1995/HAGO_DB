@@ -34,7 +34,7 @@
     <jsp:include page="../../../common/ajaxs.jsp" flush="false"/>
     <style>
         .opacity-full {
-            font-size: 12px !important;
+            font-size: 13px !important;
             background-color: #FFF !important;
             color: #000 !important;
         }
