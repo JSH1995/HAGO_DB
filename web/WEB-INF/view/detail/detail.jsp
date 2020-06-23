@@ -22,7 +22,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=1040">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
@@ -152,8 +152,8 @@
             <div class="row mt-4">
                 <div class="col-12 row">
                     <div class="col-12 text-center">
-                        <img class="cursor-pointer" src="../../../resources/images/detail_go.svg"
-                             style="border-radius: 30px;" onclick="location.href='http://codinghago.com:3389/?stage=1'">
+                        <img class="cursor-pointer" src="../../../resources/images/detail_go.svg" onclick="goHago()"
+                             style="border-radius: 30px;">
                     </div>
                 </div>
             </div>
@@ -345,6 +345,36 @@
             } else {
                 alert('내용을 입력해주세요.');
             }
+        } else {
+            /*비로그인 상태*/
+            alert('로그인을 해주세요~!');
+        }
+        location.reload();
+    }
+
+    function goHago() {
+        if (${not empty user}) {
+            // 로그인 상태
+                alert('${user.no}');
+
+            var form = document.createElement("form");
+            form.setAttribute("method", "get");
+            form.setAttribute("action", "http://www.codinghago.com:3389");
+
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", "go_user");
+            hiddenField.setAttribute("value", "${user.no}");
+            var hiddenField1 = document.createElement("input");
+            hiddenField1.setAttribute("type", "hidden");
+            hiddenField1.setAttribute("name", "go_contents");
+            hiddenField1.setAttribute("value", "${content.no}");
+
+            form.appendChild(hiddenField);
+            form.appendChild(hiddenField1);
+
+            document.body.appendChild(form);
+            form.submit();
         } else {
             /*비로그인 상태*/
             alert('로그인을 해주세요~!');

@@ -23,13 +23,11 @@
         /*CREATE*/
     }
 %>
-
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=1040">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
@@ -40,6 +38,38 @@
     <jsp:include page="../../../common/util.jsp" flush="false"/>
     <jsp:include page="../../../common/ajaxs.jsp" flush="false"/>
     <script src="../../../resources/js/inspect.js" type="text/javascript"></script>
+    <script>window.onload = function(){
+        function sendAjax(url, user, con){
+
+            var data = {'UserNo' : user, 'ContentsNo' : con};
+            data = JSON.stringify(data);
+            alert(data);
+
+            // content-type을 설정하고 데이터 송신
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url);
+            xhr.setRequestHeader('Content-type', "application/json");
+            xhr.send(data);
+
+            // 데이터 수신이 완료되면 표시
+            xhr.addEventListener('load', function(){
+                var result = JSON.parse(xhr.responseText);
+                if(result.result !== 'ok') return;
+                // 데이터가 있으면 결과값 표시
+                alert(xhr.responseText);
+            });
+        }
+        if (${not empty user}) {
+            if("${content.no}" != "" && "${user.no}" != ""){
+            alert("저장완료 update개시 : ${content.no} : ${user.no}");
+                sendAjax("http://www.codinghago.com:5050/admin/update","${user.no}","${content.no}")
+            }
+        } else {
+            alert("로그인을 먼저 해주세요~");
+            getLocation("login.do");
+        }
+    }
+    </script>
     <style>
         .opacity-full {
             font-size: 12px !important;
@@ -116,7 +146,7 @@
                 </div>
                 <div class="row m-0 p-0 pr-2 mt-4">
                     <div class="row col-12 m-0 p-0 ml-2">
-                        <span class="mb-auto w-15 detail-title-text">상세설명</span>
+                        <span class="mb-auto w-15 detail-title-text">상세 설명</span>
                         <div class="w-85 pl-2">
                         <textarea type="text" id="inputDetailDescript" name="inputDetailDescript"
                                   class="non-form-control" placeholder="자세한 설명을 입력해주세요." required="" autofocus=""
@@ -212,21 +242,9 @@
         $('#inputLearningDetail-2').val('');
         if (${state eq 2 && not empty content}) {
             /*Create 저장 성공*/
-/*
+
             location.href = "/detailCreate.do?type=${content.state}&content_no=${content.no}";
-*/
-            location.href = "/profile.do";
-
         }
-        if (${checkedEdit eq 1}) {
-            /*Create 저장 성공*/
-            /*
-                        location.href = "/detailCreate.do?type=${content.state}&content_no=${content.no}";
-*/
-            location.href = "/profile.do";
-
-        }
-
         /*default category science*/
         categoryClick(null);
         if (${not empty content}) {
@@ -365,19 +383,9 @@
             if (${state eq 1}) {
                 /*EDIT상태*/
                 $('#createForm').attr('action', '/detailCreate.do?type=edit&content_no=${content.no}');
-                alert('수정이 완료되었습니다.');
-/*
-                $('#createForm').attr('action', '/profile.do');
-*/
-
             } else if (${state eq 2}) {
                 /*CREATE상태*/
-
                 $('#createForm').attr('action', '/detailCreate.do');
-
-                alert('저장되었습니다.');
-          /*      $('#createForm').attr('action', '/profile.do');
-*/
             }
             return true;
         } else {
@@ -407,8 +415,6 @@
     function replaceAll(str, searchStr, replaceStr) {
         return str.split(searchStr).join(replaceStr);
     }
-
-
 </script>
 </body>
 </html>
